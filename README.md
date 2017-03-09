@@ -10,7 +10,8 @@
 - If the "ADD" button was pressed without a to do task entered an alert message will pop-up letting the person know that a to o task was not entered.
 
 
-![Reference Screens](img/screens.png)
+![Reference Screens](Screen Shot 2017-03-09 at 1.01.27 PM.png)	
+(Screen Shot 2017-03-09 at 12.58.14 PM.png)
 
  
 
