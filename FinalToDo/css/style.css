@@ -1,127 +1,153 @@
-/* <!--  -->code was used from Codepen.io John Baladares
-<!--  -->https://codepen.io/jaballadares/pen/Hwebq */
- .header{
- 	background-color: #FF890D;
- 	padding: 30px 40px;
- 	color: white;
- 	text-align: center;	
- }
-
- /*#myDiv{*/
- 	/*background-color: yellow;*/
- }
-
-/*.todoName {*/
-	background-color:red;
-	background-height: 50px;
+ /*codepen.io by John Baladares*/
+/*https://codepen.io/jaballadares/pen/Hwebq*/
+/* Basic Style */
+body {
+  background: #fff;
+  color: #C7000C;
+  font-family: Lato, sans-serif;
 }
- * {
- 	box-sizing: border-box;
- }
- /*h3 {*/
- 	/*background-color:red;*/
-	/*background-height: 50px;*/
- }
- 
- /*remove margins and padding from the list*/
+.ToDoBlock {
+	background-color: #EEEEFC;
+	text-align: center;
+  display: block;
+  width: 400px;
+  margin: 100px auto 0;
+  margin-top: 20px;
+  padding-top: 20px;
+}
 ul {
- 	margin: 10px;
- 	padding: 5px;
- }
- /*style list items*/
-ul li {
-	cursor: pointer;
-	position: relative;
-	padding: 12px 8px 12px 40px;
-	background: #0A8C15;
-	font-size: 18px;
-	transition: 0.2s;
+  margin: 0;
+  padding: 0;
+}
+li * {
+  float: left;
+}
+li, h3 {
+  clear:both;
+  list-style:none;
+}
+input, button {
+  outline: none;
 
-/*make list items unselectable* /*/
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
 }
-
-/*set all odd list items to a different color, zebra*/
-ul li:nth-child(odd){
-	background: #FFC50D;
-}
-/*darker background-color on hover
-ul li.checked {
-	background: #ddd;
-}
- /*when clicked on change background color and strike through*/
-ul li.checked {
-	background: #888;
-	color: #fff;
-	text-decoration: line-through;
-}
-/*add a check mark when clicking on*/
-ul li.checked:before {
-	content:'';
-	position: absolute;
-	border-color: #fff;
-	border-style: solid;
-	border-width: 0, 2px, 2px 0;
-	top: 10px;
-	left:16px;
-	transform: rotate(45deg);
-	height: 15px;
-	width: 7px;
-}
-/*style the close button
-*/
-.closeX {
-position: absolute;
-right: 0;
-top: 0;
-padding: 12px 16px 12px 16px;
-}
-
-.closeX :hover {
-	background-color: #f44336;
-	color: #F4D036;
-}
-
-
-
- /*clear floats after the header*/
-/*.header:after {*/
-	/*content:"";
-	display: table;
-	clear: both;
-}*/
-
-/*style the input*/
-/*input {*/
-	/*border: none;
-	width: 75%;
-	padding: 10px;
-	float: left;
-	font-size: 16px;
-}
-*/
-/*style the add button*/
-#btn {
-	padding: 10px;
-	position: relative;
-	/*display: block;*/
-	width: 25%;
+button {
+  background: #EEDCFC;
+  border: 0px;
+  color: #888;
+  font-size: 20px;
+  width: 90px;
+  margin-left:5px;
+  margin-right: 15px;
+  margin-top:2px;
+  margin-bottom: 5px;
+  font-family: Lato, sans-serif;
+  /*cursor: pointer;*/
+  /*padding: 10px;*/
+	/*displa;y: block;
+	width: 15%;
 	background: #FF8600; 
 	color: #555;
-	float: right;
+	float: left;*/
+	/*text-align: center;*/
+	/*font-size: 15px;
+	/*cursor: pointer;
+	transition: 0.3s;*/*/
+}
+button:hover {
+  color: #333;
+}
+/* Heading */
+h3,
+label[for='new-task'] {
 	text-align: center;
-	font-size: 20px;
-	cursor: pointer;
-	transition: 0.3s;
+  color: #333;
+  font-weight: 700;
+  font-size: 30px;
+  border-bottom: 4px solid #333;
+  padding: 30px 0 10px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+input[type="text"] {
+  margin-left: 10px;
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+input[type="text"]:focus {
+  color: #333;
 }
 
-/*.addBtn:hover {
-	background-color: #947EBB;
+/* New Task */
+label[for='new-task'] {
+  display: block;
+  margin: 0 0 20px;
+}
+input#new-task {
+  float: left;
+  width: 318px;
+}
+p > button:hover {
+  color: #0FC57C;
+}
 
-/*}
-*/
- }
+/* Task list */
+li {
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+li > input[type="checkbox"] {
+  margin: 0 10px;
+  position: relative;
+  top: 15px;
+}
+li > label {
+  font-size: 18px;
+  line-height: 40px;
+  width: 237px;
+  padding: 0 0 0 11px;
+}
+li >  input[type="text"] {
+  width: 226px;
+}
+li > .delete:hover {
+  color: #CF2323;
+}
+addBut {
+	background: #EEDCFC;
+  border: 0px;
+  color: black;
+  font-size: 15px;
+  width: 70px;
+  margin-left:10px;
+  margin-right: 15px;
+  margin-top:10px;
+  margin-bottom: 50px;
+
+}
+/* Completed */
+/*#completed-tasks label {
+  text-decoration: line-through;
+  color: #888;
+}*/
+
+/* Edit Task */
+ul li input[type=text] {
+  display:none;
+}
+
+ul li.editMode input[type=text] {
+  display:block;
+}
+
+ul li.editMode label {
+  display:none;
+}
 
