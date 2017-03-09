@@ -1,5 +1,5 @@
-<!--  -->code was used from Codepen.io John Baladares
-<!--  -->https://codepen.io/jaballadares/pen/Hwebq
+ <!-- code was used from Codepen.io John Baladares
+https://codepen.io/jaballadares/pen/Hwebq -->
 
 <!DOCTYPE html>
 <html>
@@ -17,31 +17,39 @@
 </head>
 
 <body>
-<!-- ask about why you need div id myDiv -->
-<div class="container">  
- <div id="myDiv" class="header">
-  <h3 class="center-align">My Wicked To Do List</h3>
-	<div class="row">
-	<!-- <div class="input-field col s6"> -->
-	 <div class="col s6">
-      <input "myInput" placeholder="enter your to do...">
-      <div class="col s12 m6">
-       <span onclick="newElement()" class="waves-effect waves-light btn">ADD</span>
-     </div>
-     </div>
- 	</div>
- 	</div>
-</div>
- 
+<h1 class="center-align">My Wicked To Do List</h1>
+<div class="container">
 
-<ul id="myUL">
-</ul>
+    <div class="ToDoBlock">
+      <p>
+    <div class="row">
+      <div class="col s6">
+        <input id="new-task" id="addBut" type="text" placeholder="enter your to do..."><button>ADD</button>
+    </div>
+   </div>
+ </div>
+       
+    
+      <!-- </p> -->
+      
+      <h4>To Do </h4>
+      <ul id="incomplete-tasks">
+        <!-- <li><input type="checkbox"><input type="text"><button class="edit">EDIT</button><button class="delete">DELETE</button></li> -->
 
-<script type="text/javascript" src="js/scripts.js"></script>
- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- <li class="editMode"><input type="checkbox"><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li> -->
+        
+      </ul>
+      
+      <!-- <h3>Completed</h3> -->
+     <!--  <ul id="completed-tasks">
+        <li><input type="checkbox" checked><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+      </ul> -->
+    </div>
+<!-- </div> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
  <script type="text/javascript" src="js/materialize.min.js"></script>
 
- 
-<!--   --></body>
-</html>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+  </body>
