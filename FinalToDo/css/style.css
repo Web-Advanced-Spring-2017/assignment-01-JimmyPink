@@ -1,0 +1,126 @@
+
+ .header{
+ 	background-color: #FF890D;
+ 	padding: 30px 40px;
+ 	color: white;
+ 	text-align: center;	
+ }
+
+ /*#myDiv{*/
+ 	/*background-color: yellow;*/
+ }
+
+/*.todoName {*/
+	background-color:red;
+	background-height: 50px;
+}
+ * {
+ 	box-sizing: border-box;
+ }
+ /*h3 {*/
+ 	/*background-color:red;*/
+	/*background-height: 50px;*/
+ }
+ 
+ /*remove margins and padding from the list*/
+ul {
+ 	margin: 10px;
+ 	padding: 5px;
+ }
+ /*style list items*/
+ul li {
+	cursor: pointer;
+	position: relative;
+	padding: 12px 8px 12px 40px;
+	background: #0A8C15;
+	font-size: 18px;
+	transition: 0.2s;
+
+/*make list items unselectable* /*/
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/*set all odd list items to a different color, zebra*/
+ul li:nth-child(odd){
+	background: #FFC50D;
+}
+/*darker background-color on hover
+ul li.checked {
+	background: #ddd;
+}
+ /*when clicked on change background color and strike through*/
+ul li.checked {
+	background: #888;
+	color: #fff;
+	text-decoration: line-through;
+}
+/*add a check mark when clicking on*/
+ul li.checked:before {
+	content:'';
+	position: absolute;
+	border-color: #fff;
+	border-style: solid;
+	border-width: 0, 2px, 2px 0;
+	top: 10px;
+	left:16px;
+	transform: rotate(45deg);
+	height: 15px;
+	width: 7px;
+}
+/*style the close button
+*/
+.closeX {
+position: absolute;
+right: 0;
+top: 0;
+padding: 12px 16px 12px 16px;
+}
+
+.closeX :hover {
+	background-color: #f44336;
+	color: #F4D036;
+}
+
+
+
+ /*clear floats after the header*/
+/*.header:after {*/
+	/*content:"";
+	display: table;
+	clear: both;
+}*/
+
+/*style the input*/
+/*input {*/
+	/*border: none;
+	width: 75%;
+	padding: 10px;
+	float: left;
+	font-size: 16px;
+}
+*/
+/*style the add button*/
+#btn {
+	padding: 10px;
+	position: relative;
+	/*display: block;*/
+	width: 25%;
+	background: #FF8600; 
+	color: #555;
+	float: right;
+	text-align: center;
+	font-size: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+/*.addBtn:hover {
+	background-color: #947EBB;
+
+/*}
+*/
+ }
+
