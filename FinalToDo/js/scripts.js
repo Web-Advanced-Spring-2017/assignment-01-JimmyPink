@@ -1,77 +1,166 @@
-// from w3schools.com
+ <!--  -->code was used from Codepen.io John Baladares
+<!--  -->https://codepen.io/jaballadares/pen/Hwebq
 
 console.log("hello world")
 
-// create a "close" button and append it to each list item
-var myList = document.getElementsByTagName('LI').contentEditable = true;
-var i;
-for (i = 0; i < myList.length; i++) {
-	var span = document.createElement("SPAN");
-	// u2716 unicode for X in C++ and java
-	var txt = document.createTextNode("\u2327");
-	span.className = "closeX";
-	span.appendChild(txt);
-	myList[i].appendChild(span);
+var taskInput = document.getElementById("new-task");
+var addButton = document.getElementsByTagName("button")[0];
+var incompleteTasksHolder = document.getElementById("incomplete-tasks");
+var completedTasksHolder = document.getElementById("completed-tasks");
+
+//New Task List Item
+var createNewTaskElement = function(taskString) {
+ if(taskString === ''){
+ 	alert('I Find it hard to believe that you hav nothing to do!');
+ }
+
+ 	//Create List Item
+  var listItem = document.createElement("li");
+
+  //input (checkbox)
+  var checkBox = document.createElement("input"); // checkbox
+  //label
+  var label = document.createElement("label");
+  //input (text)
+  var editInput = document.createElement("input"); // text
+  //button.edit
+  var editButton = document.createElement("button");
+  //button.delete
+  var deleteButton = document.createElement("button");
+  
+      //Each element needs modifying
+  
+  checkBox.type = "checkbox";
+  editInput.type = "text";
+  
+  editButton.innerText = "EDIT";
+  editButton.className = "edit";
+  deleteButton.innerText = "DELETE";
+  deleteButton.className = "delete";
+  
+  label.innerText = taskString;
+  
+    
+      // each element needs appending
+  listItem.appendChild(checkBox);
+  listItem.appendChild(label);
+  listItem.appendChild(editInput);
+  listItem.appendChild(editButton);
+  listItem.appendChild(deleteButton);
+
+  return listItem;
+
+ 
 }
 
-// click on a close button to hide the curret list item
-var closeX = document.getElementsByClassName("closeX");
-var i;
-for (i = 0; i < closeX.length; i++){	
-	closeX[i].onclick = function(){
-		var div = this.parentElement;
-		div.style.display = "none";
-	}
+// Add a new task
+var addTask = function() {
+  console.log("Add task...");
+  //Create a new list item with the text from #new-task:
+  var listItem = createNewTaskElement(taskInput.value);
+  //Append listItem to incompleteTasksHolder
+  incompleteTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskCompleted);  
+  
+  taskInput.value = "";   
 }
 
-// add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-	if (ev.target.tagName === "Li") {
-		ev.target.classList.toggle('   checked   ');
-	}
-}, false);
-
-// create new list item when clicking on the 'add' button
-function newElement(){
-	var li = document.createElement('li');
-	var inputValue = document.getElementById("myInput").value;
-	var listDiv = document.createElement('p');
-	listDiv.style="display:inline";
-	listDiv.contentEditable = true;
-	var t = document.createTextNode(inputValue);
-	listDiv.appendChild(t);
-
-	
-	if(inputValue === '') {
-		alert("I find it hard to believe you have nothing to do!");	
-	} else {
-		// edits the list item .contentEditable = true
-	li.appendChild(listDiv);
-		console.log(t);
-
-document.getElementById("myUL").appendChild(li).contentEditable = false;	
-	}
-document.getElementById("myInput").value = "";
-
-var span = document.createElement("button");
-// var span = document.createElement("SPAN");
-var txt = document.createTextNode("\u2327");
-span.className = "closeX";
-span.appendChild(txt);
-li.appendChild(span);
-
-for (i = 0; i <closeX.length; i++) {
-console.log(closeX);
-console.log(closeX.length);
-
-	closeX [i].onclick = function(){
-		var div = this.parentElement;
-		div.style.display = "none";
-	 }
+// Edit an existing task
+var editTask = function() {
+  console.log("Edit Task...");
+  
+  var listItem = this.parentNode;
+  
+  var editInput = listItem.querySelector("input[type=text]")
+  var label = listItem.querySelector("label");
+  
+  var containsClass = listItem.classList.contains("editMode");
+    //if the class of the parent is .editMode 
+  if(containsClass) {
+      //switch from .editMode 
+      //Make label text become the input's value
+    label.innerText = editInput.value;
+  // } else {
+      //Switch to .editMode
+      //input value becomes the label's text
+    editInput.value = label.innerText;
   }
+  
+    // Toggle .editMode on the parent
+  listItem.classList.toggle("editMode");
+ 
+}
+
+
+// Delete an existing task
+var deleteTask = function(){
+  console.log("Delete task...");
+  var listItem = this.parentNode;
+  var ul = listItem.parentNode;
+  
+  //Remove the parent list item from the ul
+  ul.removeChild(listItem);
+}
+
+// Mark a task as complete 
+var taskCompleted = function() {
+  console.log("Task complete...");
+  // Append the task list item to the #completed-tasks
+  var listItem = this.parentNode;
+//   completedTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskIncomplete);
+}
+
+// Mark a task as incomplete
+var taskIncomplete = function() {
+  console.log("Task Incomplete...");
+  // When checkbox is unchecked
+  // Append the task list item #incomplete-tasks
+  var listItem = this.parentNode;
+  incompleteTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskCompleted);
+}
+
+var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
+  console.log("Bind list item events");
+  //select taskListItem's children
+  var checkBox = taskListItem.querySelector("input[type=checkbox]");
+  var editButton = taskListItem.querySelector("button.edit");
+  var deleteButton = taskListItem.querySelector("button.delete");
+  
+  //bind editTask to edit button
+  editButton.onclick = editTask;
+  
+  //bind deleteTask to delete button
+  deleteButton.onclick = deleteTask;
+  
+  //bind checkBoxEventHandler to checkbox
+  checkBox.onchange = checkBoxEventHandler;
+}
+
+// var ajaxRequest = function() {
+  // console.log("AJAX Request");
+// }
+
+// Set the click handler to the addTask function
+//addButton.onclick = addTask;addTask,  , ajaxRequest
+addButton.addEventListener("click",addTask);
+// addButton.addEventListener("click");
+
+
+// Cycle over the incompleteTaskHolder ul list items
+for(var i = 0; i <  incompleteTasksHolder.children.length; i++) {
+    // bind events to list item's children (taskCompleted)
+  bindTaskEvents(incompleteTasksHolder.children[i], taskCompleted);
+}
+// Cycle over the completeTaskHolder ul list items
+for(var i = 0; i <  completedTasksHolder.children.length; i++) {
+    // bind events to list item's children (taskIncompleted)
+  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete); 
 
 }
+
+
 
 
 
